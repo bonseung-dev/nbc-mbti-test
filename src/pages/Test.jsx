@@ -1,7 +1,8 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { questions } from "../data/questions";
 const Test = () => {
-  return <div>Test</div>;
+  const [testList, setTestList] = useState([]);
+  return <div>{questions.question}</div>;
 };
 
 export default Test;

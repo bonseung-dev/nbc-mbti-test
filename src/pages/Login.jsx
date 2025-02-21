@@ -1,6 +1,6 @@
 import React from "react";
 
-const SignIn = () => {
+const Login = () => {
   return (
     <>
       <h1>로그인</h1>
@@ -14,4 +14,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Login;
