@@ -6,18 +6,21 @@ import Profile from "../pages/Profile";
 import Home from "../pages/Home";
 import Test from "../pages/Test";
 import Results from "../pages/Results";
+import Layout from "./Layout";
 
 const Router = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/test" element={<Test />} />
-        <Route path="/results" element={<Results />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/results" element={<Results />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 };

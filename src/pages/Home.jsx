@@ -34,14 +34,6 @@ const Home = () => {
           <p className="text-gray-600">팀의 역량을 평가해보세요.</p>
         </div>
       </div>
-
-      {/* 로그인 버튼 */}
-      <Link
-        to="/signin"
-        className="px-6 py-3 bg-slate-700 text-white font-semibold rounded hover:bg-slate-800 text-white transition"
-      >
-        Login
-      </Link>
     </div>
   );
 };
