@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { authSignup } from "../api/auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const [id, setId] = useState("");
@@ -12,7 +13,7 @@ const Signup = () => {
     try {
       const data = await authSignup({ id, password, nickname });
       if (data.success) {
-        alert("회원가입에 성공했습니다. 로그인 페이지로 이동합니다.");
+        toast.dark("회원가입에 성공했습니다. 로그인 페이지로 이동합니다.");
         navigate("/login");
       } else {
         console.log("회원가입 실패 : ", data);

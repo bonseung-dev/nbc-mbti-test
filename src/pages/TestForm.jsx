@@ -87,7 +87,7 @@ const TestForm = () => {
             <p className="mt-2">{mbtiDescriptions[mbtiResult]}</p>
             <button
               onClick={() => navigate("/testresult")}
-              className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+              className="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-gray-700 transition duration-200"
             >
               이동하기
             </button>

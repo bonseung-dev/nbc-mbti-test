@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const JSON_API_URL = "http://localhost:4000/testResults";
+const JSON_API_URL = "https://impossible-yummy-witness.glitch.me";
 
 export const getTestResults = async () => {
   const response = await axios.get(JSON_API_URL);

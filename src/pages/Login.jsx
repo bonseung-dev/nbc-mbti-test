@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { authGetUserProfile, authlogin } from "../api/auth";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [id, setId] = useState("");
@@ -13,6 +14,10 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!id.trim() || !password.trim()) {
+      toast.error("아이디와 비밀번호를 입력해주세요.");
+      return;
+    }
     try {
       const data = await authlogin({ id, password });
       if (data.success) {
@@ -22,13 +27,12 @@ const Login = () => {
         // userData에는 { id, nickname, ... } 등의 정보가 포함되어야 함
         login(token, userData);
         navigate("/");
-        alert("로그인 성공. 메인으로 돌아갑니다");
+        toast.dark("로그인 성공👋");
       } else {
-        alert("Login failed");
+        toast.error("로그인에 실패하였습니다.");
       }
     } catch (error) {
-      console.error("Login error:", error);
-      alert("Login failed");
+      toast.error("Login failed");
     }
   };
   return (

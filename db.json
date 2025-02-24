@@ -22,6 +22,22 @@
       "visibility": true,
       "date": "2025-02-24T10:56:30.279Z",
       "userId": "yana123"
+    },
+    {
+      "id": "aab1d300-45fe-41e9-8201-3d2d5125d34c",
+      "nickname": "새로 변경",
+      "result": "ESTJ",
+      "visibility": true,
+      "date": "2025-02-24T11:52:43.018Z",
+      "userId": "admin"
+    },
+    {
+      "id": "c56a2fb9-d05d-4fc3-9810-f898c85cfd36",
+      "nickname": "glynn",
+      "result": "ESTJ",
+      "visibility": true,
+      "date": "2025-02-24T11:54:07.930Z",
+      "userId": "yana123"
     }
   ]
 }

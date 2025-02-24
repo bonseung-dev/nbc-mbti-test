@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { authGetUserProfile, authPatchProfileChange } from "../api/auth";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const [userInfo, setUserInfo] = useState();
@@ -11,7 +12,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+      toast.dark("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
       navigate("/login");
       return;
     }
