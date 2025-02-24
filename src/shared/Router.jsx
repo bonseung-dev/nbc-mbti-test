@@ -4,7 +4,7 @@ import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
-import Test from "../pages/Test";
+import TestForm from "../pages/TestForm";
 import Results from "../pages/Results";
 import Layout from "./Layout";
 import { AuthContext } from "../context/AuthContext";
@@ -16,7 +16,7 @@ const PrivateRoute = ({ element: Element, ...rest }) => {
 
 const PublicRoute = ({ element: Element, ...rest }) => {
   const { isAuthenticated } = useContext(AuthContext);
-  return !isAuthenticated ? <Element {...rest} /> : <Navigate to="/profile" />;
+  return !isAuthenticated ? <Element {...rest} /> : <Navigate to="/" />;
 };
 
 const Router = () => {
@@ -25,7 +25,7 @@ const Router = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/test" element={<Test />} />
+          <Route path="/testform" element={<TestForm />} />
           <Route path="/results" element={<Results />} />
           <Route path="/login" element={<PublicRoute element={Login} />} />
           <Route path="/register" element={<PublicRoute element={SignUp} />} />

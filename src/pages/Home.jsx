@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Links } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -17,12 +17,14 @@ const Home = () => {
 
       {/* 섹션 소개: 카드 형태로 구성 */}
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-8">
-        <div className="flex-1 p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-          <h2 className="text-xl text-gray-800 font-semibold mb-2">
-            성격 유형 검사
-          </h2>
-          <p className="text-gray-600">자신의 성격을 확인해보세요.</p>
-        </div>
+        <Link to={"/testform"}>
+          <div className="flex-1 p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+            <h2 className="text-xl text-gray-800 font-semibold mb-2">
+              성격 유형 검사
+            </h2>
+            <p className="text-gray-600">자신의 성격을 확인해보세요.</p>
+          </div>
+        </Link>
         <div className="flex-1 p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
           <h2 className="text-xl text-gray-800 font-semibold mb-2">
             성격 유형 이해
