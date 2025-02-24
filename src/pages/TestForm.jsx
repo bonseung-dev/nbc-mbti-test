@@ -55,39 +55,40 @@ const TestForm = () => {
       {questions.map((q) => (
         <div
           key={q.id}
-          className="mb-6 p-4 w-2/3 mx-auto border border-gray-300 rounded shadow "
+          className="mb-6 p-4 w-full max-w-lg mx-auto border border-gray-300 rounded shadow "
         >
-          <h3 className="text-xl font-bold mb-2 text-center">{`${q.id}. ${q.question}`}</h3>
-          <div className="flex justify-center gap-2 ">
+          <h3 className="text-lg sm:text-xl font-bold mb-3 text-center">{`${q.id}. ${q.question}`}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {q.options.map((option, idx) => (
               <label
                 key={idx}
-                className={`cursor-pointer px-4 py-2 border border-gray-400 rounded transition ${
+                className={`cursor-pointer px-3 py-2 text-sm border border-gray-400 rounded-md text-center transition ${
                   selectedOptions[q.id] === option
-                    ? "bg-white text-black border-2 border-purple-500 focus:outline-2 "
-                    : "bg-gray-300 text-black"
+                    ? "bg-purple-500 text-white border-2 border-purple-700"
+                    : "bg-gray-200 text-black"
                 }`}
               >
                 <input
                   type="radio"
-                  name={`question-${q.id}`} // 질문별 고유한 그룹
+                  name={`question-${q.id}`}
                   value={option}
                   checked={selectedOptions[q.id] === option}
                   onChange={() => handleOptionChange(q.id, option)}
                   className="hidden"
                 />
-                <span>{option}</span>
+                <span className="block">{option}</span>
               </label>
             ))}
           </div>
         </div>
       ))}
       <button
-        className="block mt-4 px-4 w-1/3 mx-auto py-2 bg-red-500 text-white rounded hover:bg-red-600"
+        className="block mt-4 px-4 w-full max-w-xs mx-auto py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
         onClick={handleShowMbti}
       >
         결과 보기
       </button>
+
       {/*결과 출력 modal*/}
       {modalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
