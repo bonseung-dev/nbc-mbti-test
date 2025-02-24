@@ -4,6 +4,7 @@ import { mbtiDescriptions, calculateMBTI } from "../utils/mbtiCalculator";
 import { createTestResults } from "../api/testResults";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const TestForm = () => {
   const [selectedOptions, setSelectedOptions] = useState({});
@@ -18,6 +19,10 @@ const TestForm = () => {
 
   const handleShowMbti = async (e) => {
     e.preventDefault();
+    if (!currentUser) {
+      toast.error("로그인 후 테스트를 진행해주세요.");
+      return;
+    }
 
     const answers = questions.map((q) => ({
       type: q.type,
