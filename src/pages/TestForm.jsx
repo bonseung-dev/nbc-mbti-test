@@ -55,7 +55,12 @@ const TestForm = () => {
           </div>
         </div>
       ))}
-      <button onClick={handleShowMbti}>완료</button>
+      <button
+        className="block mt-4 px-4 w-1/3 mx-auto py-2 bg-red-500 text-white rounded hover:bg-red-600"
+        onClick={handleShowMbti}
+      >
+        결과 보기
+      </button>
       {/*결과 출력 modal*/}
       {modalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">

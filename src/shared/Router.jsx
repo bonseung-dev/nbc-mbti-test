@@ -8,6 +8,7 @@ import TestForm from "../pages/TestForm";
 import Results from "../pages/Results";
 import Layout from "./Layout";
 import { AuthContext } from "../context/AuthContext";
+import { MbtiList } from "../pages/MbtiList";
 
 const PrivateRoute = ({ element: Element, ...rest }) => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -27,6 +28,7 @@ const Router = () => {
           <Route path="/" element={<Home />} />
           <Route path="/testform" element={<TestForm />} />
           <Route path="/results" element={<Results />} />
+          <Route path="/mbtilist" element={<MbtiList />} />
           <Route path="/login" element={<PublicRoute element={Login} />} />
           <Route path="/register" element={<PublicRoute element={SignUp} />} />
           <Route path="/profile" element={<PrivateRoute element={Profile} />} />

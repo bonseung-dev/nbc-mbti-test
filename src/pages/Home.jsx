@@ -25,12 +25,14 @@ const Home = () => {
             <p className="text-gray-600">자신의 성격을 확인해보세요.</p>
           </div>
         </Link>
-        <div className="flex-1 p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-          <h2 className="text-xl text-gray-800 font-semibold mb-2">
-            성격 유형 이해
-          </h2>
-          <p className="text-gray-600">다양한 성격 유형에 대해 알아보세요.</p>
-        </div>
+        <Link to={"/mbtilist"}>
+          <div className="flex-1 p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+            <h2 className="text-xl text-gray-800 font-semibold mb-2">
+              성격 유형 이해
+            </h2>
+            <p className="text-gray-600">다양한 성격 유형에 대해 알아보세요.</p>
+          </div>
+        </Link>
         <div className="flex-1 p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
           <h2 className="text-xl text-gray-800 font-semibold mb-2">팀 평가</h2>
           <p className="text-gray-600">팀의 역량을 평가해보세요.</p>
