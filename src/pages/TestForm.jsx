@@ -1,14 +1,28 @@
 import React, { useState } from "react";
-import { questions } from "../data/questions"; // 경로는 실제 위치에 맞게 수정
+import { questions } from "../data/questions";
+import { mbtiDescriptions, calculateMBTI } from "../utils/mbtiCalculator";
 
 const TestForm = () => {
-  // 각 질문별로 선택된 옵션을 저장하는 상태 (키는 question의 id)
   const [selectedOptions, setSelectedOptions] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
+  const [mbtiResult, setMbtiResult] = useState(null);
 
   const handleOptionChange = (questionId, option) => {
     setSelectedOptions({ ...selectedOptions, [questionId]: option });
   };
 
+  const handleShowMbti = (e) => {
+    e.preventDefault();
+
+    const answers = questions.map((q) => ({
+      type: q.type,
+      answer: selectedOptions[q.id],
+    }));
+
+    const result = calculateMBTI(answers);
+    setMbtiResult(result);
+    setModalOpen(true);
+  };
   return (
     <div className="p-4">
       {questions.map((q) => (
@@ -41,7 +55,25 @@ const TestForm = () => {
           </div>
         </div>
       ))}
-      <button>완료</button>
+      <button onClick={handleShowMbti}>완료</button>
+      {/*결과 출력 modal*/}
+      {modalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-md">
+            <h2 className="text-2xl font-bold mb-4">당신의 MBTI</h2>
+            <p className="text-lg font-semibold text-center text-purple-600">
+              {mbtiResult}
+            </p>
+            <p className="mt-2">{mbtiDescriptions[mbtiResult]}</p>
+            <button
+              onClick={() => setModalOpen(false)}
+              className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            >
+              닫기
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

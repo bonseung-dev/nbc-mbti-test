@@ -19,12 +19,16 @@ export const authGetUserProfile = async (token) => {
   return response.data;
 };
 // 프로필 변경
-export const authPatchProfileChange = async (token) => {
-  const response = await axios.patch(`${API_URL}/profile`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "multipart/form-data",
-    },
-  });
+export const authPatchProfileChange = async (token, newNickname) => {
+  const response = await axios.patch(
+    `${API_URL}/profile`,
+    { nickname: newNickname },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
   return response.data;
 };

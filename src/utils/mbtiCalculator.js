@@ -34,7 +34,7 @@ export const mbtiDescriptions = {
   ENTP: "ENTP: 지적 도전을 즐기는 영리하고 호기심이 많은 사색가! ENTP은 두뇌 회전이 빠르고 대담한 성격으로 현재 상황에 이의를 제기하는 데 거리낌이 없는 사람들입니다. 이들은 어떤 의견이나 사람에 반대하는 일을 두려워하지 않으며, 논란이 될 만한 주제에 대해 격렬하게 논쟁하는 일을 즐기고 있어요. 그렇다고 반론을 제기하는 데만 관심이 있거나 악의를 지닌 것은 아니랍니다. ENTP는 사실 지식이 풍부하고 호기심이 넘치며 활기찬 유머 감각으로 다른 사람들을 즐겁게 할 수 있는 성격이랍니다.",
 };
 
-const calculateMBTI = (answers) => {
+export const calculateMBTI = (answers) => {
   // 각 MBTI 유형에 대한 점수 초기화
   const scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
 
