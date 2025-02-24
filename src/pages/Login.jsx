@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { authlogin } from "../api/auth";
+import { authGetUserProfile, authlogin } from "../api/auth";
 
 const Login = () => {
   const [id, setId] = useState("");
@@ -16,7 +16,11 @@ const Login = () => {
     try {
       const data = await authlogin({ id, password });
       if (data.success) {
-        login(data.accessToken);
+        const token = data.accessToken;
+        // accessToken을 이용하여 사용자 프로필 정보를 가져옴
+        const userData = await authGetUserProfile(token);
+        // userData에는 { id, nickname, ... } 등의 정보가 포함되어야 함
+        login(token, userData);
         navigate("/");
         alert("로그인 성공. 메인으로 돌아갑니다");
       } else {

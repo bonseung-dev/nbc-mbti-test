@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { questions } from "../data/questions";
 import { mbtiDescriptions, calculateMBTI } from "../utils/mbtiCalculator";
+import { createTestResults } from "../api/testResults";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const TestForm = () => {
   const [selectedOptions, setSelectedOptions] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const [mbtiResult, setMbtiResult] = useState(null);
+  const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleOptionChange = (questionId, option) => {
     setSelectedOptions({ ...selectedOptions, [questionId]: option });
   };
 
-  const handleShowMbti = (e) => {
+  const handleShowMbti = async (e) => {
     e.preventDefault();
 
     const answers = questions.map((q) => ({
@@ -22,6 +27,16 @@ const TestForm = () => {
     const result = calculateMBTI(answers);
     setMbtiResult(result);
     setModalOpen(true);
+
+    const newTestResult = {
+      id: crypto.randomUUID(),
+      nickname: currentUser.nickname,
+      result,
+      visibility: true,
+      date: new Date(),
+      userId: currentUser.id,
+    };
+    await createTestResults(newTestResult);
   };
   return (
     <div className="p-4">
@@ -71,10 +86,10 @@ const TestForm = () => {
             </p>
             <p className="mt-2">{mbtiDescriptions[mbtiResult]}</p>
             <button
-              onClick={() => setModalOpen(false)}
+              onClick={() => navigate("/testresult")}
               className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
             >
-              닫기
+              이동하기
             </button>
           </div>
         </div>

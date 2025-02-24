@@ -1,3 +1,27 @@
 {
-  "testResults": []
+  "testResults": [
+    {
+      "id": "유저 ID",
+      "nickname": "닉네임",
+      "result": "MBTI 유형",
+      "visibility": true,
+      "date": "yyyy-MM-dd"
+    },
+    {
+      "id": "43797648-85a7-4352-ab55-5192e860f254",
+      "nickname": "새로 변경",
+      "result": "ESTJ",
+      "visibility": true,
+      "date": "2025-02-24T10:44:05.023Z",
+      "userId": "admin"
+    },
+    {
+      "id": "3e951e3a-b902-478a-852a-225f12967690",
+      "nickname": "glynn",
+      "result": "ISTJ",
+      "visibility": true,
+      "date": "2025-02-24T10:56:30.279Z",
+      "userId": "yana123"
+    }
+  ]
 }
