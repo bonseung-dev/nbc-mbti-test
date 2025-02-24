@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { questions } from "../data/questions";
 import { mbtiDescriptions, calculateMBTI } from "../utils/mbtiCalculator";
 import { createTestResults } from "../api/testResults";
@@ -13,17 +13,24 @@ const TestForm = () => {
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!currentUser) {
+      toast.error("로그인 후 테스트를 진행해주세요.");
+      navigate("/login");
+    }
+  }, [currentUser, navigate]);
+
   const handleOptionChange = (questionId, option) => {
     setSelectedOptions({ ...selectedOptions, [questionId]: option });
   };
 
   const handleShowMbti = async (e) => {
     e.preventDefault();
-    if (!currentUser) {
-      toast.error("로그인 후 테스트를 진행해주세요.");
+
+    if (Object.keys(selectedOptions).length < questions.length) {
+      toast.error("모든 문항을 선택해주세요.");
       return;
     }
-
     const answers = questions.map((q) => ({
       type: q.type,
       answer: selectedOptions[q.id],
