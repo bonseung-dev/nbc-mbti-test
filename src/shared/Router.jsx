@@ -8,7 +8,6 @@ import TestForm from "../pages/TestForm";
 import Layout from "./Layout";
 import { AuthContext } from "../context/AuthContext";
 import { MbtiList } from "../pages/MbtiList";
-import TestResult from "../pages/TestResult";
 import TestResultList from "../pages/TestResultList";
 
 const PrivateRoute = ({ element: Element, ...rest }) => {

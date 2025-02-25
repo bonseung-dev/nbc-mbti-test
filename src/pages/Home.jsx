@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Links } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -38,6 +38,11 @@ const Home = () => {
           <p className="text-gray-600">팀의 역량을 평가해보세요.</p>
         </div>
       </div>
+      <Link to={"/testresult"}>
+        <button className="block mt-4 px-4 w-full max-w-xs mx-auto py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition">
+          테스트 결과 보기
+        </button>
+      </Link>
     </div>
   );
 };

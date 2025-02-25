@@ -36,11 +36,11 @@ const Profile = () => {
     try {
       const updatedProfile = await authPatchProfileChange(token, newNickname);
       setUserInfo(updatedProfile);
-      alert("닉네임이 변경되었습니다. 메인 페이지로 이동합니다");
+      toast.dark("닉네임이 변경되었습니다.");
       navigate("/");
     } catch (error) {
       console.log("닉네임 변경 오류 발생 : ", error);
-      alert("닉네임 변경 실패");
+      toast.error("닉네임 변경 실패");
     }
   };
   return (
