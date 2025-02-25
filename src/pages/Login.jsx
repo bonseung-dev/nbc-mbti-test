@@ -41,10 +41,7 @@ const Login = () => {
         <h2 className="text-2xl font-bold mb-6 text-center">로그인</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label
-              htmlFor="id"
-              className="block text-gray-700 text-sm font-medium mb-2"
-            >
+            <label className="block text-gray-700 text-sm font-medium mb-2">
               아이디 :
             </label>
             <input
@@ -57,10 +54,7 @@ const Login = () => {
             />
           </div>
           <div className="mb-6">
-            <label
-              htmlFor="password"
-              className="block text-gray-700 text-sm font-medium mb-2"
-            >
+            <label className="block text-gray-700 text-sm font-medium mb-2">
               비밀번호 :
             </label>
             <input

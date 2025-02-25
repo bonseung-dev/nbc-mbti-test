@@ -55,7 +55,7 @@ const TestForm = () => {
       {questions.map((q) => (
         <div
           key={q.id}
-          className="mb-6 p-4 w-full max-w-lg mx-auto border border-gray-300 rounded shadow "
+          className="mb-6 p-4 w-full max-w-4xl mx-auto border border-gray-300 rounded shadow "
         >
           <h3 className="text-lg sm:text-xl font-bold mb-3 text-center">{`${q.id}. ${q.question}`}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -64,8 +64,8 @@ const TestForm = () => {
                 key={idx}
                 className={`cursor-pointer px-3 py-2 text-sm border border-gray-400 rounded-md text-center transition ${
                   selectedOptions[q.id] === option
-                    ? "bg-purple-500 text-white border-2 border-purple-700"
-                    : "bg-gray-200 text-black"
+                    ? "bg-black text-white  "
+                    : "bg-white text-black"
                 }`}
               >
                 <input

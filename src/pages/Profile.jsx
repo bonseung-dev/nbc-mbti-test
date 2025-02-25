@@ -44,25 +44,37 @@ const Profile = () => {
     }
   };
   return (
-    <div>
-      <h1>My page</h1>
-      {userInfo ? (
-        <div>
-          <p>아이디 : {userInfo.id}</p>
-          <p>닉네임 : {userInfo.nickname}</p>
-        </div>
-      ) : (
-        <p>로딩중...</p>
-      )}
-      <form onSubmit={handleNicknameChange}>
-        <input
-          type="text"
-          value={newNickname}
-          onChange={(e) => setNewNickname(e.target.value)}
-          placeholder={userInfo?.nickname}
-        />
-        <button type="submit">변경하기</button>
-      </form>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+        <h2 className="text-2xl font-bold mb-6 text-center">닉네임 변경</h2>
+        {userInfo ? (
+          <div className="mb-4">
+            <p className="text-gray-700">
+              <span className="font-semibold">현재 닉네임:</span>{" "}
+              {userInfo.nickname}
+            </p>
+          </div>
+        ) : (
+          <p className="text-center text-gray-600 mb-4">로딩중...</p>
+        )}
+        <form onSubmit={handleNicknameChange}>
+          <div className="mb-6">
+            <input
+              type="text"
+              value={newNickname}
+              onChange={(e) => setNewNickname(e.target.value)}
+              placeholder={userInfo?.nickname}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-gray-700 transition duration-200"
+          >
+            변경하기
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

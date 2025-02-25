@@ -36,7 +36,9 @@ const TestResultItem = ({ result, onRefresh }) => {
       <p className="text-lg font-semibold mb-2">닉네임: {result.nickname}</p>
       <p className="text-gray-700 mb-2">결과: {result.result}</p>
       <p className="mb-2">{mbtiDescriptions[result.result]}</p>
-      <p className="text-sm text-gray-500 mb-4">날짜: {result.date}</p>
+      <p className="text-sm text-gray-500 mb-4">
+        날짜: {new Date(result.date).toLocaleString()}
+      </p>
       {isOwner && (
         <div className="flex justify-between">
           <button

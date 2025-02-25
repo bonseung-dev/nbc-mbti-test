@@ -14,13 +14,10 @@ const Header = () => {
     }
   };
   return (
-    <header className="bg-gray-300 text-teal p-4">
-      <div className="container mx-auto flex justify-between items-center">
+    <header className="bg-black text-white p-4">
+      <div className="flex justify-between items-center w-full">
         <Link to="/" className="text-xl font-bold">
-          <img
-            src="https://cdn-icons-png.flaticon.com/128/6449/6449157.png"
-            style={{ width: "50px", height: "50px" }}
-          />
+          <img src="/Preview.png" alt="Logo" className="w-32 h-18" />
         </Link>
         {isAuthenticated ? (
           <>
