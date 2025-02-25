@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authGetUserProfile, authlogin } from "../api/auth";
 import { toast } from "react-toastify";
 
@@ -73,6 +73,12 @@ const Login = () => {
             로그인
           </button>
         </form>
+        <p className="text-center">
+          회원가입 하러가기 👉{" "}
+          <Link to={"/register"}>
+            <span className="font-bold text-blue-600">signup</span>
+          </Link>
+        </p>
       </div>
     </div>
   );
