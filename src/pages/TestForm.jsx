@@ -45,7 +45,7 @@ const TestForm = () => {
       nickname: currentUser.nickname,
       result,
       visibility: true,
-      date: new Date(),
+      date: new Date().toISOString(),
       userId: currentUser.id,
     };
     await createTestResults(newTestResult);
@@ -86,7 +86,7 @@ const TestForm = () => {
         className="block mt-4 px-4 w-full max-w-xs mx-auto py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
         onClick={handleShowMbti}
       >
-        결과 보기
+        결과 페이지로 이동하기
       </button>
 
       {/*결과 출력 modal*/}

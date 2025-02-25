@@ -9,6 +9,7 @@ import Layout from "./Layout";
 import { AuthContext } from "../context/AuthContext";
 import { MbtiList } from "../pages/MbtiList";
 import TestResult from "../pages/TestResult";
+import TestResultList from "../pages/TestResultList";
 
 const PrivateRoute = ({ element: Element, ...rest }) => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -19,7 +20,6 @@ const PublicRoute = ({ element: Element, ...rest }) => {
   const { isAuthenticated } = useContext(AuthContext);
   return !isAuthenticated ? <Element {...rest} /> : <Navigate to="/" />;
 };
-
 const Router = () => {
   return (
     <BrowserRouter>
@@ -27,7 +27,7 @@ const Router = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/testform" element={<TestForm />} />
-          <Route path="/testresult" element={<TestResult />} />
+          <Route path="/testresult" element={<TestResultList />} />
           <Route path="/mbtilist" element={<MbtiList />} />
           <Route path="/login" element={<PublicRoute element={Login} />} />
           <Route path="/register" element={<PublicRoute element={SignUp} />} />
