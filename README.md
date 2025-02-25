@@ -1,5 +1,7 @@
 # MBTI Test App
 
+![image](https://github.com/user-attachments/assets/532dbd6e-eba8-4c6d-9738-971b096cd4c8)
+![image](https://github.com/user-attachments/assets/6d058403-59e7-4c96-b579-139f7c2d5fc9)
 무료로 자신의 MBTI(성격 유형)를 테스트하고 결과를 확인할 수 있는 웹 애플리케이션입니다.  
 이 프로젝트는 React와 Tailwind CSS를 기반으로 제작되었으며, JWT 인증, JSON 서버를 통한 데이터 관리, Axios 인스턴스 활용, 반응형 UI 구현 등 최신 웹 기술을 적용하였습니다.
 
