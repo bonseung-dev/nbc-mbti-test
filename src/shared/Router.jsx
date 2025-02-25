@@ -1,5 +1,11 @@
 import React, { useContext } from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+} from "react-router-dom";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Profile from "../pages/Profile";
@@ -10,9 +16,9 @@ import { AuthContext } from "../context/AuthContext";
 import { MbtiList } from "../pages/MbtiList";
 import TestResultList from "../pages/TestResultList";
 
-const PrivateRoute = ({ element: Element, ...rest }) => {
+const PrivateRoute = () => {
   const { isAuthenticated } = useContext(AuthContext);
-  return isAuthenticated ? <Element {...rest} /> : <Navigate to="/login" />;
+  return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
 };
 
 const PublicRoute = ({ element: Element, ...rest }) => {
