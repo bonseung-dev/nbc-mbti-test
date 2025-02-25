@@ -28,6 +28,7 @@
 
 ## 프로젝트 구조
 
+```
 mbti-test-app/
 ├── public/ # 정적 파일 (예: index.html, 이미지 등)
 ├── src/
@@ -40,6 +41,7 @@ mbti-test-app/
 │ └── utils/ # 유틸리티 (MBTI 계산, 질문 데이터 등)
 ├── vercel.json # Vercel 배포 설정
 └── package.json
+```
 
 ## 기술 스택
 
